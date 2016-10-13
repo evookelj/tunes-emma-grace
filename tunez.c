@@ -40,23 +40,29 @@ songNode* searchArtist(songNode* list, char artist[]) {
   return NULL;
 }
 
-songNode* freeList(songNode* list) {
+void deleteSong( songNode* list, char name[] ) {
   songNode* p = list;
-  while (p != NULL) {
-    free(p);
+  while (p->next != NULL) {
+    if (!(strcmp(p->next->name,name))) {
+      p->next = (p->next)->next;
+      return;
+    }
     p=p->next;
   }
 }
 
 int main() {
   songNode* list = NULL;
+  printf("TESTING ADD AND FIND:\n");
   list = insert_front(list, "New York Cares", "Interpol");
   list = insert_front(list, "Look At Me", "Buddy Holly");
   list = insert_front(list, "Whole Lotta Love", "Led Zeppelin");
   list = insert_front(list, "Mailman, Bring Me No More Blues", "Buddy Holly");
-  printf("Playlist: \n");
   print_list(list);
   printf("Looking for 'Buddy Holly': %s\n", searchArtist(list,"Buddy Holly")->name);
   printf("Looking for 'Whole Lotta Love': %s\n", searchSong(list, "Whole Lotta Love")->artist);
+  printf("\nTESTING DELETE of 'Look At Me':\n");
+  deleteSong(list,"Look At Me");
+  print_list(list);
   return 0;
 }

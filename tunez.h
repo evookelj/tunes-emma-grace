@@ -10,18 +10,25 @@ void print_list(struct song_node *list);
 //returns pointer to new front of list w given attributes (DONE)
 struct song_node* insert_front( struct song_node* list, char name[], char artist[] );
 
+//returns pointer to list w given song added at end
+struct song_node* insert_end( struct song_node* list, char name[], char artist[] );
+
 //returns pointer to first occurence of song (DONE)
 struct song_node* searchSong( struct song_node* list, char name[] );
 
 //returns pointer to first occurence of artist (DONE)
 struct song_node* searchArtist( struct song_node* list, char artist[] );
 
-//return pointer to a random song
-struct song_node* randomSong( struct song_node* list );
+//return pointer to start of deleted list
+struct song_node* deleteList( struct song_node* list);
 
-//return pointer to start of free'd list
-struct song_node* freeList( struct song_node* list);
+//delete given song name (DONE)
+void deleteSong( struct song_node* list, char name[] );
 
-//insert notes in order??
+//print playlist in random order
+void printShuffle( struct song_node* list );
 
-//remove single node from list??
+//print all songs of artist
+void printArtist( struct song_node* list, char artist[] );
+
+//print all entries under certain letter IDK WHAT ARGS SHLD BE HERE
