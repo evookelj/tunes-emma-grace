@@ -19,7 +19,7 @@ struct song_node* searchArtist( struct song_node* list, char artist[] );
 //return pointer to a random song
 struct song_node* randomSong( struct song_node* list );
 
-//return pointer to start of free'd list (DONE)
+//return pointer to start of free'd list
 struct song_node* freeList( struct song_node* list);
 
 //insert notes in order??
