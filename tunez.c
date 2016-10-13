@@ -44,7 +44,9 @@ void deleteSong( songNode* list, char name[] ) {
   songNode* p = list;
   while (p->next != NULL) {
     if (!(strcmp(p->next->name,name))) {
+      songNode* del = p->next;
       p->next = (p->next)->next;
+      free(del);
       return;
     }
     p=p->next;
