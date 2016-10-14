@@ -5,12 +5,24 @@
 
 typedef struct song_node songNode;
 
-songNode* insert_front( songNode* list, char newName[256], char newArtist[256]) {
+songNode* insert_front( songNode* list, char newName[256], char newArtist[256] ) {
   songNode* new = malloc(sizeof(songNode));
   strcpy(new->name,newName);
   strcpy(new->artist,newArtist);
   new->next = list;
   return new;
+}
+
+songNode* insert_end( songNode* list, char newName[256], char newArtist[256] ) {
+  songNode* new = malloc(sizeof(songNode));
+  strcpy(new->name,newName);
+  strcpy(new->artist,newArtist);
+  songNode* curr = list;
+  while(curr->next != NULL) {
+    curr = curr->next;
+  }
+  curr->next = new;
+  return list;
 }
 
 void print_list(songNode* list) {
@@ -60,6 +72,7 @@ int main() {
   list = insert_front(list, "Look At Me", "Buddy Holly");
   list = insert_front(list, "Whole Lotta Love", "Led Zeppelin");
   list = insert_front(list, "Mailman, Bring Me No More Blues", "Buddy Holly");
+  list = insert_end(list, "Yesterday", "The Beatles");
   print_list(list);
   printf("Looking for 'Buddy Holly': %s\n", searchArtist(list,"Buddy Holly")->name);
   printf("Looking for 'Whole Lotta Love': %s\n", searchSong(list, "Whole Lotta Love")->artist);
