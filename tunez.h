@@ -10,7 +10,7 @@ void print_list(struct song_node *list);
 //returns pointer to new front of list w given attributes (DONE)
 struct song_node* insert_front( struct song_node* list, char name[], char artist[] );
 
-//returns pointer to list w given song added at end
+//returns pointer to list w given song added at end (DONE)
 struct song_node* insert_end( struct song_node* list, char name[], char artist[] );
 
 //returns pointer to first occurence of song (DONE)

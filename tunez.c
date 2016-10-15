@@ -65,6 +65,20 @@ void deleteSong( songNode* list, char name[] ) {
   }
 }
 
+//THIS IS NOT WORKING YET AND IDK WHY
+//free(<songNode) is only freeing the song part of the struct
+songNode* deleteList( songNode* list ) {
+  songNode* p = list;
+  songNode* curr;
+  while(p != NULL) {
+    //printf("\nLIST IS NOT NULL");
+    curr = p->next;
+    free(p);
+    p = curr;
+  }
+  return list;
+}
+
 int main() {
   songNode* list = NULL;
   printf("TESTING ADD AND FIND:\n");
@@ -78,6 +92,9 @@ int main() {
   printf("Looking for 'Whole Lotta Love': %s\n", searchSong(list, "Whole Lotta Love")->artist);
   printf("\nTESTING DELETE of 'Look At Me':\n");
   deleteSong(list,"Look At Me");
+  print_list(list);
+  printf("TESTING DELETE LIST:\n");
+  deleteList(list);
   print_list(list);
   return 0;
 }
