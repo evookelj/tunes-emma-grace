@@ -88,6 +88,15 @@ void printArtist( songNode* list, char artist[] ){
   }
 }
 
+void printAlpha( struct song_node* list, char x ) {
+  printf("\n%c songs:\n", x);
+  songNode* p = list;
+  while (p != NULL) {
+    if ((p->name)[0] == x) { printf("%s\n", p->name); }
+    p=p->next;
+  }
+}
+
 int main() {
 
   songNode* list = NULL;
@@ -102,8 +111,8 @@ int main() {
   print_list(list);
   printf("Looking for 'Buddy Holly': %s\n", searchArtist(list,"Buddy Holly")->name);
   printf("Looking for 'Whole Lotta Love': %s\n", searchSong(list, "Whole Lotta Love")->artist);
-  printf("\nTESTING DELETE of 'Look At Me':\n");
-  deleteSong(list,"Look At Me");
+  printf("\nTESTING DELETE of 'Black Bird':\n");
+  deleteSong(list,"Black Bird");
   print_list(list);
   /*===================================
   printf("TESTING DELETE LIST:\n");
@@ -112,5 +121,7 @@ int main() {
     ====================================*/
   printf("TESTING PRINT ARTIST");
   printArtist(list, "The Beatles");
+  printf("TESTING PRINT ALPHA");
+  printAlpha(list, 'L');
   return 0;
 }

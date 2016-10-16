@@ -19,7 +19,7 @@ struct song_node* searchSong( struct song_node* list, char name[] );
 //returns pointer to first occurence of artist (DONE)
 struct song_node* searchArtist( struct song_node* list, char artist[] );
 
-//return pointer to start of deleted list
+//return pointer to start of deleted list (DOESN'T WORK)
 struct song_node* deleteList( struct song_node* list);
 
 //delete given song name (DONE)
@@ -28,7 +28,8 @@ void deleteSong( struct song_node* list, char name[] );
 //print playlist in random order
 void printShuffle( struct song_node* list );
 
-//print all songs of artist
+//print all songs of artist (DONE)
 void printArtist( struct song_node* list, char artist[] );
 
-//print all entries under certain letter IDK WHAT ARGS SHLD BE HERE
+//print all entries under certain letter (DONE)
+void printAlpha( struct song_node* list, char x );
