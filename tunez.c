@@ -79,7 +79,17 @@ songNode* deleteList( songNode* list ) {
   return list;
 }
 
+void printArtist( songNode* list, char artist[] ){
+  printf("\nSongs by %s:\n", artist);
+  songNode* p = list;
+  while (p != NULL) {
+    if (!(strcmp(p->artist,artist))) { printf("%s\n", p->name); }
+    p=p->next;
+  }
+}
+
 int main() {
+
   songNode* list = NULL;
   printf("TESTING ADD AND FIND:\n");
   list = insert_front(list, "New York Cares", "Interpol");
@@ -87,14 +97,20 @@ int main() {
   list = insert_front(list, "Whole Lotta Love", "Led Zeppelin");
   list = insert_front(list, "Mailman, Bring Me No More Blues", "Buddy Holly");
   list = insert_end(list, "Yesterday", "The Beatles");
+  list = insert_end(list, "Black Bird", "The Beatles");
+  list = insert_end(list, "Let it be", "The Beatles");
   print_list(list);
   printf("Looking for 'Buddy Holly': %s\n", searchArtist(list,"Buddy Holly")->name);
   printf("Looking for 'Whole Lotta Love': %s\n", searchSong(list, "Whole Lotta Love")->artist);
   printf("\nTESTING DELETE of 'Look At Me':\n");
   deleteSong(list,"Look At Me");
   print_list(list);
+  /*===================================
   printf("TESTING DELETE LIST:\n");
   deleteList(list);
   print_list(list);
+    ====================================*/
+  printf("TESTING PRINT ARTIST");
+  printArtist(list, "The Beatles");
   return 0;
 }
