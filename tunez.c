@@ -13,12 +13,27 @@ songNode* insert_front( songNode* list, char newName[256], char newArtist[256] )
   return new;
 }
 
-songNode* insert_end( songNode* list, char newName[256], char newArtist[256] ) {
+songNode* insert_order( songNode* list, char newName[256], char newArtist[256] ) {
   songNode* new = malloc(sizeof(songNode));
   strcpy(new->name,newName);
   strcpy(new->artist,newArtist);
   songNode* curr = list;
+  new->next = NULL;
+
+  if(curr->next == NULL) {
+    if(strcmp(newArtist, curr->artist) < 0) {
+      new->next = curr;
+      return new;
+    }
+    curr->next = new;
+  }
+
   while(curr->next != NULL) {
+    if(strcmp(newArtist, curr->next->artist) < 0) {
+    new->next = curr->next;
+    curr->next = new;
+    return list;
+    }
     curr = curr->next;
   }
   curr->next = new;
@@ -31,7 +46,7 @@ void print_list(songNode* list) {
     printf("Song: %s, Artist: %s\n",p->name,p->artist);
     p=p->next;
   }
-  printf("\n");
+  printf("NULL\n");
 }
 
 songNode* searchSong(songNode* list, char name[]) {
@@ -76,7 +91,7 @@ songNode* deleteList( songNode* list ) {
     free(p);
     p = curr;
   }
-  return list;
+  return p;
 }
 
 void printArtist( songNode* list, char artist[] ){
@@ -102,26 +117,28 @@ int main() {
   songNode* list = NULL;
   printf("TESTING ADD AND FIND:\n");
   list = insert_front(list, "New York Cares", "Interpol");
-  list = insert_front(list, "Look At Me", "Buddy Holly");
-  list = insert_front(list, "Whole Lotta Love", "Led Zeppelin");
-  list = insert_front(list, "Mailman, Bring Me No More Blues", "Buddy Holly");
-  list = insert_end(list, "Yesterday", "The Beatles");
-  list = insert_end(list, "Black Bird", "The Beatles");
-  list = insert_end(list, "Let it be", "The Beatles");
+  list = insert_order(list, "Look At Me", "Buddy Holly");
+  list = insert_order(list, "Whole Lotta Love", "Led Zeppelin");
+  list = insert_order(list, "Mailman, Bring Me No More Blues", "Buddy Holly");
+  list = insert_order(list, "Yesterday", "The Beatles");
+  list = insert_order(list, "Black Bird", "The Beatles");
+  list = insert_order(list, "Let it be", "The Beatles");
   print_list(list);
   printf("Looking for 'Buddy Holly': %s\n", searchArtist(list,"Buddy Holly")->name);
   printf("Looking for 'Whole Lotta Love': %s\n", searchSong(list, "Whole Lotta Love")->artist);
   printf("\nTESTING DELETE of 'Black Bird':\n");
   deleteSong(list,"Black Bird");
   print_list(list);
+
   /*===================================
-  printf("TESTING DELETE LIST:\n");
-  deleteList(list);
-  print_list(list);
     ====================================*/
   printf("TESTING PRINT ARTIST");
   printArtist(list, "The Beatles");
   printf("TESTING PRINT ALPHA");
   printAlpha(list, 'L');
+
+  printf("TESTING DELETE LIST:\n");
+  list = deleteList(list);
+  print_list(list);
   return 0;
 }
