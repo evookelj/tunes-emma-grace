@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "tunez.h"
+#include "linkedList.h"
 
 typedef struct song_node songNode;
 
@@ -11,11 +11,6 @@ songNode* insert_front_list(songNode* list, char newName[], char newArtist[] ) {
   strcpy(new->artist,newArtist);
   new->next = list;
   return new;
-}
-
-void insertFront( songNode* table[], char newName[], char newArtist[] ) {
-  songNode* findLL = findLetterList(table,newArtist[0]);
-  findLL = insert_front_list( findLL, newName, newArtist );
 }
 
 songNode* insert_order_list( songNode* list, char newName[], char newArtist[] ) {
@@ -44,23 +39,11 @@ songNode* insert_order_list( songNode* list, char newName[], char newArtist[] ) 
   return list;
 }
 
-void insertOrder( songNode* table[], char newName[], char newArtist[] ) {
-  songNode* findLL = findLetterList(table,newArtist[0]);
-  findLL = insert_order_list( findLL, newName, newArtist);
-}
-
 void print_list(songNode* list) {
   songNode* p = list;
   while (p != NULL) {
     printf("Song: %s, Artist: %s\n",p->name,p->artist);
     p=p->next;
-  }
-}
-
-void printList( songNode* table[] ) {
-  int i = 0;
-  for (i=0; i<26; i++) {
-    print_list(table[i]);
   }
 }
 
@@ -73,15 +56,6 @@ songNode* search_song_list(songNode* list, char name[]) {
   return NULL;
 }
 
-songNode* searchSong( songNode* table[], char name[] ) {
-   int i;
-   for (i=0; i<26; i++) {
-     songNode* result = search_song_list(table[i],name);
-     if (result != NULL) { return result; }
-   }
-   return NULL;
- }
-
 songNode* search_artist_list(songNode* list, char artist[]) {
   songNode* p = list;
   while (p != NULL) {
@@ -89,10 +63,6 @@ songNode* search_artist_list(songNode* list, char artist[]) {
     p=p->next;
   }
   return NULL;
-}
-
-songNode* searchArtist( songNode* table[], char artist[] ) {
-  return search_artist_list( findLetterList(table,artist[0]),artist);
 }
 
 void delete_song_list( songNode* list, char name[] ) {
@@ -108,18 +78,6 @@ void delete_song_list( songNode* list, char name[] ) {
   }
 }
 
- void deleteSong( songNode* table[], char name[]) {
-   int i;
-   for (i=0; i<26; i++) {
-     songNode* result = search_song_list(table[i], name);
-     if (result != NULL) {
-       delete_song_list( table[i], name );
-       return;
-     }
-   }
-   return ;
- }
-
 songNode* delete_list( songNode* list ) {
   songNode* p = list;
   songNode* curr;
@@ -132,14 +90,6 @@ songNode* delete_list( songNode* list ) {
   return p;
 }
 
-songNode** deleteList( songNode* table[] ) {
-   int i;
-   for (i=0; i<26; i++) {
-     delete_list(table[i]);
-   }
-   table = NULL;
-   return table;
-}
 
 void print_artist_list( songNode* list, char artist[] ){
   printf("\nSongs by %s:\n", artist);
@@ -150,10 +100,6 @@ void print_artist_list( songNode* list, char artist[] ){
   }
 }
 
-void printArtist( songNode* table[], char artist[] ) {
-  print_artist_list( findLetterList(table,artist[0]),artist);
- }
-
 void print_alpha_list( struct song_node* list, char x ) {
   printf("\n%c songs:\n", x);
   songNode* p = list;
@@ -163,13 +109,6 @@ void print_alpha_list( struct song_node* list, char x ) {
   }
 }
 
- void printAlpha( songNode* table[], char x) {
-   print_alpha_list( findLetterList(table,x), x);
- } 
-
-songNode* findLetterList( songNode* table[], char a ) {
-  return table[(int)tolower(a) - 97];
-}
 
 int main() {
   songNode* *table = calloc(26,sizeof(songNode*));
