@@ -112,8 +112,14 @@ void printAlpha( struct song_node* list, char x ) {
   }
 }
 
-int main() {
+songNode* findLetterList( songNode* table[], char artist[256] ) {
+  //return table;
+  return table[(int)(artist[0]) - 97];
+}
 
+int main() {
+  songNode* *table = calloc(26,sizeof(songNode*));
+  
   songNode* list = NULL;
   printf("TESTING ADD AND FIND:\n");
   list = insert_front(list, "New York Cares", "Interpol");
@@ -140,5 +146,6 @@ int main() {
   printf("TESTING DELETE LIST:\n");
   list = deleteList(list);
   print_list(list);
+
   return 0;
 }
