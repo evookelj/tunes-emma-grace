@@ -16,7 +16,7 @@ void print_list(songNode *list);
 songNode *insert_front( songNode* list, char name[], char artist[] );
 
 //returns pointer to front of list w ndoe inserted in order (DONE)
-songNode* insert_order( struct songNode* list, char name[], char artist[] );
+songNode* insert_order( songNode* list, char name[], char artist[] );
 
 //returns pointer to first occurence of song (DONE)
 songNode* search_song_list( songNode* list, char name[] );

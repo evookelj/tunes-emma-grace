@@ -110,4 +110,10 @@ void print_alpha_list( struct song_node* list, char x ) {
   }
 }
 
+/*
+int main() {
+  return 0;
+}
+*/
+
 #endif
