@@ -1,7 +1,7 @@
 GCC = gcc
 
-tuneztest: linkedList.c musicLib.c
-	$(GCC) linkedList.c musicLib.c -o tuneztest
+tuneztest: linkedList.c musicLib.c main.c
+	$(GCC) linkedList.c musicLib.c main.c -o tuneztest
 
 run: tuneztest
 	./tuneztest

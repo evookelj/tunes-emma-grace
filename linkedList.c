@@ -1,9 +1,10 @@
+#ifndef LINKED_LIST_C
+#define LINKED_LIST_C
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include "linkedList.h"
-
-typedef struct song_node songNode;
 
 songNode* insert_front_list(songNode* list, char newName[], char newArtist[] ) {
   songNode* new = malloc(sizeof(songNode));
@@ -109,40 +110,4 @@ void print_alpha_list( struct song_node* list, char x ) {
   }
 }
 
-
-int main() {
-  songNode* *table = calloc(26,sizeof(songNode*));
-  songNode* list = NULL;
-  printf("TESTING ADD AND FIND:\n");
-  insertFront(table, "New York Cares", "Interpol");
-  print_list(findLetterList(table,'i'));
-  printList(table);
-  /*
-  insertOrder(table, "Look At Me", "Buddy Holly");
-  insertOrder(table, "Whole Lotta Love", "Led Zeppelin");
-  insertOrder(table, "Mailman, Bring Me No More Blues", "Buddy Holly");
-  table = insertOrder(table, "Yesterday", "The Beatles");
-  table = insertOrder(table, "Black Bird", "The Beatles");
-  table = insertOrder(table, "Let it be", "The Beatles");
-  printList(table);
-  printf("Looking for 'Buddy Holly': %s\n", searchArtist(table,"Buddy Holly")->name);
-  printf("Looking for 'Whole Lotta Love': %s\n", searchSong(table, "Whole Lotta Love")->artist);
-  printf("\nTESTING DELETE of 'Black Bird':\n");
-  deleteSong(table,"Black Bird");
-  printList(table);
-  */
-  deleteList(table);
-
-  /*===================================
-  printf("TESTING PRINT ARTIST");
-  printArtist(list, "The Beatles");
-  printf("TESTING PRINT ALPHA");
-  printAlpha(list, 'L');
-
-  printf("TESTING DELETE LIST:\n");
-  list = deleteList(list);
-  print_list(list);
-    ====================================*/
-
-  return 0;
-}
+#endif

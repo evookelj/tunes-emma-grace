@@ -1,7 +1,11 @@
+#ifndef MUSIC_LIB_C
+#define MUSIC_LIB_C
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include "linkedList.h"
+#include "musicLib.h"
 
 void insertFront( songNode* table[], char newName[], char newArtist[] ) {
   songNode* findLL = findLetterList(table,newArtist[0]);
@@ -65,3 +69,5 @@ void printAlpha( songNode* table[], char x) {
 songNode* findLetterList( songNode* table[], char a ) {
   return table[(int)tolower(a) - 97];
 }
+
+#endif

@@ -1,3 +1,6 @@
+#ifndef MUSIC_LIB_H
+#define MUSIC_LIB_H
+
 //struct song_node* insertFront( struct song_node* table[], char newName[], char newArtist[] );
 
 //struct song_node* insertOrder( struct song_node* table[], char newName[], char newArtist[] );
@@ -12,3 +15,9 @@
 //void printArtist( struct song_node* table[], char artist[] );
 
 struct song_node* findLetterList( struct song_node* table[], char a );
+
+//void printAlpha( struct song_node* table[], char x);                                                                                                                               
+
+songNode* findLetterList( songNode* table[], char a );
+
+#endif

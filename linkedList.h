@@ -1,36 +1,40 @@
+#ifndef LINKED_LIST_H
+#define LINKED_LIST_H
+
 struct song_node{
   char name[256];
   char artist[256];
   struct song_node* next;
 };
 
+typedef struct song_node songNode;
+
 //print list (DONE)
-void print_list(struct song_node *list);
+void print_list(songNode *list);
 
 //returns pointer to new front of list w given attributes (DONE)
-struct song_node* insert_front( struct song_node* list, char name[], char artist[] );
+songNode *insert_front( songNode* list, char name[], char artist[] );
 
 //returns pointer to front of list w ndoe inserted in order (DONE)
-struct song_node* insert_order( struct song_node* list, char name[], char artist[] );
+songNode* insert_order( struct songNode* list, char name[], char artist[] );
 
 //returns pointer to first occurence of song (DONE)
-struct song_node* search_song_list( struct song_node* list, char name[] );
+songNode* search_song_list( songNode* list, char name[] );
 
 //returns pointer to first occurence of artist (DONE)
-struct song_node* search_artist_list( struct song_node* list, char artist[] );
+songNode* search_artist_list( songNode* list, char artist[] );
 
 //return pointer to start of deleted list (DONE)
-struct song_node* delete_list( struct song_node* list);
+songNode* delete_list( songNode* list);
 
 //delete given song name (DONE)
-void deleteSong( struct song_node* list, char name[] );
+void delete_song_list( songNode* list, char name[] );
 
 //print all songs of artist (DONE)
-void print_artist_list( struct song_node* list, char artist[] );
+void print_artist_list( songNode* list, char artist[] );
 
 //print all entries under certain letter (DONE)
-void print_alpha_list( struct song_node* list, char x );
+void print_alpha_list( songNode* list, char x );
 
-//void printAlpha( struct song_node* table[], char x);
 
-struct song_node* findLetterList( struct song_node* table[], char a );
+#endif
