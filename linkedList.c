@@ -101,15 +101,16 @@ void print_artist_list( songNode* list, char artist[] ){
   printf("\nSongs by %s:\n", artist);
   songNode* p = list;
   int i=0;
+  int nfound = 1;
   while (p != NULL) {
     if (!(strcmp(p->artist,artist))) {
       printf("%s\n",p->name);
-      return ;
+      nfound = 0;
     }
     p=p->next;
     i++;
   }
-  printf("No songs found\n");
+  if (nfound) { printf("no songs found\n"); }
 }
 
 void print_alpha_list( struct song_node* list, char x ) {

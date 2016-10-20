@@ -35,10 +35,13 @@ void searchSong( songNode* table[], char name[] ) {
   for (i=0; i<26; i++) {
     //printf("i: %d\n", i);
     result = search_song_list(table[i],name);
-    if (result != NULL) { printf("Artist of %s: %s\n",name,result->artist); }
+    if (result != NULL) {
+      printf("Artist of %s: %s\n",name,result->artist);
+      return ;
+    }
   }
   //printf("EXIT FOR LOOP\n");
-  printf("(null)\n");
+  printf("song not found\n");
 }
 
 void searchArtist( songNode* table[], char artist[] ) {
@@ -47,7 +50,7 @@ void searchArtist( songNode* table[], char artist[] ) {
     printf("First occurence of %s: %s",artist, result->name); 
     return ;
   }
-  printf("(null)\n");
+  printf("artist not found\n");
 }
 
 void deleteSong( songNode* table[], char name[]) {
