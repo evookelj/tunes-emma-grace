@@ -101,7 +101,7 @@ void print_artist_list( songNode* list, char artist[] ){
   printf("\nSongs by %s:\n", artist);
   songNode* p = list;
   int i=0;
-  while ((p != NULL) && (p->name != NULL)) {
+  while (p != NULL) {
     if (!(strcmp(p->artist,artist))) {
       printf("%s\n",p->name);
       return ;
