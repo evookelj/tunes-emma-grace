@@ -1,4 +1,4 @@
-GCC = gcc -c
+GCC = gcc -c -g
 
 start: linkedList.c musicLib.c main.c
 	$(GCC) linkedList.c musicLib.c

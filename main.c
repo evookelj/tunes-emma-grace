@@ -16,8 +16,10 @@ int main() {
 
   printf("TESTING ADD AND FIND:\n");
   insert(table, "New york cares", "Interpol");
+  insert(table, "The Distance", "CAKE");
   insert(table, "Look At Me", "Buddy Holly");
   insert(table, "Mailman, Bring Me No More Blues", "Buddy Holly");
+  insert(table, "You're So Square", "Buddy Holly");
   insert(table, "Yesterday", "The Beatles");
   insert(table, "Black Bird", "The Beatles");
   insert(table, "Let it be", "The Beatles");
@@ -33,22 +35,15 @@ int main() {
   searchSong(table, "Let it be");
   printf("\nSearching for 'Whole Lotta Love': ");
   searchSong(table, "Whole Lotta Love");
-  /*
+
+  //=====TESTING SHUFFLE=====
+  shuffleLib(table);
+  
   printf("\nTESTING DELETE of 'Black Bird':\n");
   deleteSong(table,"Black Bird");
   printList(table);
   deleteList(table);
-  */
-
-  /*===================================                                           printf("TESTING PRINT ARTIST");
-  printArtist(list, "The Beatles");
-  printf("TESTING PRINT ALPHA");
-  printAlpha(list, 'L');
-  printf("TESTING DELETE LIST:\n");
-  list = deleteList(list);
-  print_list(list);                                                               ====================================*/
-
-return 0;
+  return 0;
 }
 
 #endif

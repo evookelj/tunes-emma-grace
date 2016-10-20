@@ -21,6 +21,7 @@ void deleteSong( songNode* table[], char name[]);
 //prints out all songs of artist (DONE)
 void printArtist( songNode* table[], char artist[] );
 
+//prints out all songs/artists under char x (DONE)
 void printAlpha( songNode* table[], char x);
 
 //(DONE)

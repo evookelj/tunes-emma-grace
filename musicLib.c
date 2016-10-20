@@ -24,8 +24,10 @@ void insert( songNode* table[], char newName[], char newArtist[] ) {
 void printList( songNode* table[] ) {
   int i = 0;
   for (i=0; i<26; i++) {
-    printf("%c:\n",toupper(i + 97));
-    print_list(table[i]);
+    if (table[i] != NULL) { 
+      printf("%c:\n",toupper(i + 97));
+      print_list(table[i]);
+    }
   }
 }
 
@@ -84,6 +86,46 @@ songNode* findLetterList( songNode* table[], char a ) {
   songNode *list = table[(int)tolower(a) - 97];
   return list;
 }
+
+void shuffleLib( songNode* table[] ) {
+  srand(time(NULL));
+  int count = 0;
+  int i;
+  //get count of all songs
+  for (i=0; i<26; i++) {
+    songNode* curr = table[i];
+    while (curr != NULL) {
+      count++;
+      curr = curr->next;
+    }
+  }
+
+  //add items of table to tunez
+  songNode* tunez[count];
+  int count2 = 0;
+  for (i=0; i<26;i++) {
+    songNode* curr = table[i];
+    while (curr != NULL) {
+      tunez[count2] = curr;
+      count2++;
+      curr = curr->next;
+    }
+  }
+
+  //randomize tunez via swap
+  for (i=0; i<count; i++) {
+    int r = rand() % count;
+    songNode* curr = tunez[i];
+    tunez[i] = tunez[r];
+    tunez[r] = curr;
+  }
+
+  printf("SHUFFLED PLAYLIST:\n");
+  for (i=0; i<count; i++) {
+    printf("Song: %s, Artist: %s\n",tunez[i]->name,tunez[i]->artist);
+  }
+}
+
 /*
 int main() {
   return 0;
