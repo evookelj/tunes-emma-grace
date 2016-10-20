@@ -24,10 +24,9 @@ int main() {
   printList(table);
   printf("Looking for 'Buddy Holly': %s\n", searchArtist(table, "Buddy Holly")->name);
   printArtist(table,"Buddy Holly");
-  /*
   printArtist(table,"Simon and Garfunkel");
   printf("Looking for 'Whole Lotta Love': %s\n", searchSong(table, "Whole Lotta Love")->artist);
-
+  /*
   printf("\nTESTING DELETE of 'Black Bird':\n");
   deleteSong(table,"Black Bird");
   printList(table);

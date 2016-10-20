@@ -31,8 +31,9 @@ void printList( songNode* table[] ) {
 
 songNode* searchSong( songNode* table[], char name[] ) {
   int i;
+  songNode *result;
   for (i=0; i<26; i++) {
-    songNode* result = search_song_list(table[i],name);
+    result = search_song_list(table[i],name);
     if (result != NULL) { return result; }
   }
   return NULL;
