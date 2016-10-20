@@ -3,8 +3,8 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include "linkedList.c"
-#include "musicLib.c"
+#include "musicLib.h"
+#include "linkedList.h"
 
 int main() {
   songNode* *table = calloc(26,sizeof(songNode*));
@@ -31,16 +31,13 @@ int main() {
   deleteList(table);
   */
 
-/*===================================                                                                                                                                              
-  printf("TESTING PRINT ARTIST");                                                                                                                                                    
-  printArtist(list, "The Beatles");                                                                                                                                                  
-  printf("TESTING PRINT ALPHA");                                                                                                                                                     
-  printAlpha(list, 'L');                                                                                                                                                             
-                                                                                                                                                                                     
-  printf("TESTING DELETE LIST:\n");                                                                                                                                                  
-  list = deleteList(list);                                                                                                                                                           
-  print_list(list);                                                                                                                                                                  
-  ====================================*/
+  /*===================================                                           printf("TESTING PRINT ARTIST");
+  printArtist(list, "The Beatles");
+  printf("TESTING PRINT ALPHA");
+  printAlpha(list, 'L');
+  printf("TESTING DELETE LIST:\n");
+  list = deleteList(list);
+  print_list(list);                                                               ====================================*/
 
 return 0;
 }
