@@ -42,6 +42,7 @@ songNode* insert_order_list( songNode* list, char newName[], char newArtist[] ) 
 
 void print_list(songNode* list) {
   songNode* p = list;
+  printf("%s",list->name);
   while (p != NULL) {
     printf("Song: %s, Artist: %s\n",p->name,p->artist);
     p=p->next;

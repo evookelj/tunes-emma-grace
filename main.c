@@ -10,14 +10,18 @@ int main() {
   songNode* *table = calloc(26,sizeof(songNode*));
   songNode* list = NULL;
   printf("TESTING ADD AND FIND:\n");
-  insertFront(table, "New York Cares", "Interpol");
-  print_list(findLetterList(table,'i'));
-  printList(table);
 
+  //add is not adding correctly
+  table = insertFront(table, "new york cares", "interpol");
+  print_list(findLetterList(table,'i'));
+
+  //THIS is causing seg fault
+  //printList(table);
+
+  /*
   insertOrder(table, "Look At Me", "Buddy Holly");
   insertOrder(table, "Mailman, Bring Me No More Blues", "Buddy Holly");
   printList(table);
-  /*
   table =insertOrder(table, "Yesterday", "The Beatles");
   table = insertOrder(table, "Black Bird", "The Beatles");
   table = insertOrder(table, "Let it be", "The Beatles");

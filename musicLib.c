@@ -10,6 +10,7 @@
 void insertFront( songNode* table[], char newName[], char newArtist[] ) {
   songNode* findLL = findLetterList(table,newArtist[0]);
   findLL = insert_front_list( findLL, newName, newArtist );
+  printf("name:%s\tartist:%s",findLL->name,findLL->artist);
 }
 
 void insertOrder( songNode* table[], char newName[], char newArtist[] ) {
@@ -19,7 +20,9 @@ void insertOrder( songNode* table[], char newName[], char newArtist[] ) {
 
 void printList( songNode* table[] ) {
   int i = 0;
+  printf("HI");
   for (i=0; i<26; i++) {
+    printf("i: %d",i);
     print_list(table[i]);
   }
 }
