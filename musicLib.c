@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <ctype.h>
 #include "musicLib.h"
 #include "linkedList.h"
 
@@ -52,13 +53,11 @@ void deleteSong( songNode* table[], char name[]) {
   return ;
 }
 
-songNode** deleteList( songNode* table[] ) {
+void deleteList( songNode* table[] ) {
   int i;
   for (i=0; i<26; i++) {
     delete_list(table[i]);
   }
-  table = NULL;
-  return table;
 }
 
 void printArtist( songNode* table[], char artist[] ) {

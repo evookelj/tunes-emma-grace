@@ -2,26 +2,27 @@
 #define MUSIC_LIB_H
 #include "linkedList.h"
 
-//struct song_node* insertFront( struct song_node* table[], char newName[], char newArtist[] );
+void insertFront( songNode* table[], char newName[], char newArtist[] );
 
-//struct song_node* insertOrder( struct song_node* table[], char newName[], char newArtist[] );
+void insertOrder( songNode* table[], char newName[], char newArtist[] );
 
-//struct song_node* searchSong( struct song_node* table[], char name[] ); 
+void printList( songNode* table[] );
 
-//struct song_node* searchArtist( struct song_node* table[], char artist[] ); 
+songNode* searchSong( songNode* table[], char name[] );
 
-//struct song_node** deleteList( struct song_node* table[] ); 
+songNode* searchArtist( songNode* table[], char artist[] );
+
+void deleteList( songNode* table[] ); 
+
+void deleteSong( songNode* table[], char name[]);
+
+void printArtist( songNode* table[], char artist[] );
+
+void printAlpha( songNode* table[], char x);
+
+songNode* findLetterList( songNode* table[], char a );
 
 //print playlist in random order
-
-//void printShuffle( struct song_node* list );
-
-//void printArtist( struct song_node* table[], char artist[] );
-
-struct song_node* findLetterList( struct song_node* table[], char a );
-
-//void printAlpha( struct song_node* table[], char x);
-
-struct song_node* findLetterList(struct song_node* table[], char a );
+void printShuffle( struct song_node* list );
 
 #endif

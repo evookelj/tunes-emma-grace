@@ -12,7 +12,7 @@ int main() {
   printf("TESTING ADD AND FIND:\n");
 
   //add is not adding correctly
-  table = insertFront(table, "new york cares", "interpol");
+  insertFront(table, "new york cares", "interpol");
   print_list(findLetterList(table,'i'));
 
   //THIS is causing seg fault

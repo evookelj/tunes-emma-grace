@@ -13,10 +13,10 @@ typedef struct song_node songNode;
 void print_list(songNode *list);
 
 //returns pointer to new front of list w given attributes (DONE)
-songNode *insert_front( songNode* list, char name[], char artist[] );
+songNode* insert_front_list(songNode* list, char newName[], char newArtist[] );
 
 //returns pointer to front of list w ndoe inserted in order (DONE)
-songNode* insert_order( songNode* list, char name[], char artist[] );
+songNode* insert_order_list( songNode* list, char newName[], char newArtist[] );
 
 //returns pointer to first occurence of song (DONE)
 songNode* search_song_list( songNode* list, char name[] );
