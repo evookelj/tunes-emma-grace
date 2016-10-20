@@ -20,12 +20,14 @@ songNode* insert_order_list( songNode* list, char newName[], char newArtist[] ) 
   strcpy(new->artist,newArtist);
   songNode* curr = list;
   new->next = NULL;
+
   if(curr->next == NULL) {
     if(strcmp(newArtist, curr->artist) < 0) {
       new->next = curr;
       return new;
     }
     curr->next = new;
+    return list;
   }
 
   while(curr->next != NULL) {
@@ -42,7 +44,9 @@ songNode* insert_order_list( songNode* list, char newName[], char newArtist[] ) 
 
 void print_list(songNode* list) {
   songNode* p = list;
-  printf("%s",list->name);
+  if (list == NULL) {
+    return;
+  }
   while (p != NULL) {
     printf("Song: %s, Artist: %s\n",p->name,p->artist);
     p=p->next;

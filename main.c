@@ -7,26 +7,22 @@
 #include "linkedList.h"
 
 int main() {
-  songNode* *table = calloc(26,sizeof(songNode*));
-  songNode* list = NULL;
+
+  songNode *table[26];
+  int i;
+  for(i = 0; i < 26; i++) {
+    table[i] = NULL;
+  }
+
   printf("TESTING ADD AND FIND:\n");
-
-  //add is not adding correctly
-  insertFront(table, "new york cares", "interpol");
-  print_list(findLetterList(table,'i'));
-
-  //THIS is causing seg fault
-  //printList(table);
-
+  insert(table, "New york cares", "Interpol");
+  insert(table, "Look At Me", "Buddy Holly");
+  insert(table, "Mailman, Bring Me No More Blues", "Buddy Holly");
+  insert(table, "Yesterday", "The Beatles");
+  insert(table, "Black Bird", "The Beatles");
+  insert(table, "Let it be", "The Beatles");
+  printList(table);
   /*
-  insertOrder(table, "Look At Me", "Buddy Holly");
-  insertOrder(table, "Mailman, Bring Me No More Blues", "Buddy Holly");
-  printList(table);
-  table =insertOrder(table, "Yesterday", "The Beatles");
-  table = insertOrder(table, "Black Bird", "The Beatles");
-  table = insertOrder(table, "Let it be", "The Beatles");
-  printList(table);
-
   printf("Looking for 'Buddy Holly': %s\n", searchArtist(table,"Buddy Holly")->name);
   printf("Looking for 'Whole Lotta Love': %s\n", searchSong(table, "Whole Lotta Love")->artist);
   printf("\nTESTING DELETE of 'Black Bird':\n");

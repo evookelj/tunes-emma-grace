@@ -2,9 +2,7 @@
 #define MUSIC_LIB_H
 #include "linkedList.h"
 
-void insertFront( songNode* table[], char newName[], char newArtist[] );
-
-void insertOrder( songNode* table[], char newName[], char newArtist[] );
+void insert( songNode* table[], char newName[], char newArtist[] );
 
 void printList( songNode* table[] );
 
