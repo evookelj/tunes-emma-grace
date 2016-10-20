@@ -39,7 +39,7 @@ songNode* searchSong( songNode* table[], char name[] ) {
 }
 
 songNode* searchArtist( songNode* table[], char artist[] ) {
-  return search_artist_list( findLetterList(table,artist[0]),artist);
+  return search_artist_list(findLetterList(table,artist[0]),artist);
 }
 
 void deleteSong( songNode* table[], char name[]) {
@@ -70,7 +70,8 @@ void printAlpha( songNode* table[], char x) {
 }
 
 songNode* findLetterList( songNode* table[], char a ) {
-  return table[(int)tolower(a) - 97];
+  songNode *list = table[(int)tolower(a) - 97];
+  return list;
 }
 /*
 int main() {

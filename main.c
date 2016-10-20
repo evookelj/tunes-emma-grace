@@ -22,9 +22,12 @@ int main() {
   insert(table, "Black Bird", "The Beatles");
   insert(table, "Let it be", "The Beatles");
   printList(table);
+  printf("Looking for 'Buddy Holly': %s\n", searchArtist(table, "Buddy Holly")->name);
+  printArtist(table,"Buddy Holly");
   /*
-  printf("Looking for 'Buddy Holly': %s\n", searchArtist(table,"Buddy Holly")->name);
+  printArtist(table,"Simon and Garfunkel");
   printf("Looking for 'Whole Lotta Love': %s\n", searchSong(table, "Whole Lotta Love")->artist);
+
   printf("\nTESTING DELETE of 'Black Bird':\n");
   deleteSong(table,"Black Bird");
   printList(table);

@@ -21,7 +21,7 @@ songNode* insert_order_list( songNode* list, char newName[], char newArtist[] );
 //returns pointer to first occurence of song (DONE)
 songNode* search_song_list( songNode* list, char name[] );
 
-//returns pointer to first occurence of artist (DONE)
+//return pointer to first occurence of artist (DONE)
 songNode* search_artist_list( songNode* list, char artist[] );
 
 //return pointer to start of deleted list (DONE)
