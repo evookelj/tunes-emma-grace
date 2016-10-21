@@ -126,9 +126,4 @@ void shuffleLib( songNode* table[] ) {
   }
 }
 
-/*
-int main() {
-  return 0;
-}
-*/
 #endif

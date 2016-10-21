@@ -14,7 +14,7 @@ int main() {
     table[i] = NULL;
   }
 
-  printf("TESTING ADD AND FIND:\n");
+  printf("TESTING ADD AND PRINT:\n");
   insert(table, "New york cares", "Interpol");
   insert(table, "The Distance", "CAKE");
   insert(table, "Look At Me", "Buddy Holly");
