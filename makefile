@@ -12,3 +12,4 @@ run: tuneztest
 
 clean:
 	rm *~
+	rm *.o
